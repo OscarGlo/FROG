@@ -1,0 +1,169 @@
+@font-face {
+	font-family: OpenDyslexic;
+	src: url(OpenDyslexic.otf);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	background: black;
+	text-align: center;
+}
+
+#container {
+	display: inline-block;
+	text-align: center;
+	background: white;
+	margin: 10px;
+	width: 600px;
+	height: calc(100vh - 40px);
+}
+
+#pageNum {
+	display: block;
+	font-family: Arial, sans-serif;
+	padding-top: 20px;
+}
+
+#pageNum span {
+	padding: 2px 5px;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 2px black solid;
+	background: white;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* TEXT CONTAINER */
+#text {
+	display: inline-block;
+	width: 400px;
+	text-align: left;
+	line-height: 2rem;
+	font-size: 18px;
+	font-family: Arial, sans-serif;
+	
+	margin-top: 15px;
+	height: calc(100vh - 175px);
+	
+	overflow: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+#text::-webkit-scrollbar {
+	display: none;
+}
+
+#text.font2 {
+	font-family: Times, serif;
+}
+
+#text.font3 {
+	font-family: OpenDyslexic, sans-serif;
+}
+
+#text.alternate-lines {
+	background-image: repeating-linear-gradient(
+			  to bottom,
+			  transparent, transparent 2rem,
+			  #ccc 2rem, #ccc 4rem);
+	background-attachment: local;
+}
+
+#text p {
+	margin: 2rem 0;
+}
+
+#text p:first-child {
+	margin-top: 0;
+}
+
+.dialogue {
+	padding-left: 20px;
+}
+
+/* UNITES DE SENS */
+#text.separate span {
+	display: inline-block;
+	letter-spacing: 2px;
+}
+
+#text.alternate span:nth-child(even) {
+	background-color: #ddd;
+}
+
+#text.alternate span:nth-child(odd) {
+	background-color: #bbb;
+}
+
+/* MENU */
+#menu {
+	display: flex;
+	justify-content: center;
+	height: 80px;
+	padding: 10px;
+	background: #00b11d;
+	user-select: none;
+}
+
+.material-icons {
+	margin: 0 10px;
+	position: relative;
+	font-size: 35px;
+	text-align: center;
+	height: 60px;
+	width: 60px;
+	line-height: 54px;
+	background: white;
+	border-radius: 30px;
+	border: 3px solid black;
+	cursor: pointer;
+}
+
+.material-icons > span {
+	display: none;
+}
+
+.material-icons.toggle1 > span:first-child,
+.material-icons.toggle2 > span:nth-child(2),
+.material-icons.toggle3 > span:nth-child(3) {
+	display: inline-block;
+}
+
+.font-toggle {
+	position: absolute;
+	font-size: 27px;
+	line-height: 10px;
+	color: #666;
+	top: 0;
+}
+
+.material-icons.toggle1 .font-toggle span:first-child,
+.material-icons.toggle2 .font-toggle span:nth-child(2),
+.material-icons.toggle3 .font-toggle span:nth-child(3) {
+	color: black;
+}
+
+.font-toggle span {
+	position: absolute;
+}
+
+.font-toggle span:first-child {
+	font-family: Arial, sans-serif;
+	top: 8px;
+	left: 20px;
+}
+.font-toggle span:nth-child(2) {
+	font-family: Times, serif;
+	top: 28px;
+	left: 11px;
+}
+.font-toggle span:nth-child(3) {
+	font-family: OpenDyslexic, sans-serif;
+	top: 28px;
+	left: 29px;
+}
