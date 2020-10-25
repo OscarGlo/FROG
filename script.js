@@ -49,7 +49,7 @@ window.addEventListener("load", () => {
             if (selected != null)
                 selected.classList.remove("selected");
 
-            if (Date.now() - selectedAt < 800 || selected === span || selected === span.parentNode) {
+            if (Date.now() - selectedAt < 800 && (selected === span || selected === span.parentNode)) {
                 selected = (selected === span ? span.parentNode : span);
             } else {
                 selected = (selected === span || selected === span.parentNode ? (selected == null ? span : null) : span);
@@ -57,9 +57,12 @@ window.addEventListener("load", () => {
 
             contextMenu.style.display = selected != null ? "" : "none";
 
+            console.log(selected.offsetTop, selected.offsetLeft);
+
             if (selected != null) {
-                contextMenu.offsetTop = selected.offsetTop;
-                contextMenu.offsetLeft = selected.offsetLeft;
+                contextMenu.style.top = (selected.offsetTop + selected.getBoundingClientRect().height + 25 - text.scrollTop) + "px";
+                if (selected.classList.contains("word"))
+                    contextMenu.style.left = Math.max(selected.offsetLeft - (contextMenu.clientWidth/2), 0) + "px";
                 selected.classList.add("selected");
                 selectedAt = Date.now();
             } else {
@@ -70,6 +73,7 @@ window.addEventListener("load", () => {
 
     text.addEventListener("click", () => {
         if (selected != null) {
+            contextMenu.style.display = "none";
             selected.classList.remove("selected");
             selected = null;
         }
