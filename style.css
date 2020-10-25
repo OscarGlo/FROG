@@ -37,10 +37,16 @@ body {
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+
 /* TEXT CONTAINER */
+#text-container {
+    position: relative;
+}
+
 #text {
+    position: relative;
 	display: inline-block;
-	width: 400px;
+	padding: 0 calc((100% - 400px) / 2);
 	text-align: left;
 	line-height: 2rem;
 	font-size: 18px;
@@ -48,6 +54,8 @@ body {
 	
 	margin-top: 15px;
 	height: calc(100vh - 175px);
+
+    user-select: none;
 	
 	overflow: scroll;
 	-ms-overflow-style: none;
@@ -86,22 +94,65 @@ body {
 	padding-left: 20px;
 }
 
+/* FADE GRADIENTS */
+#gradient-start, #gradient-end {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+#gradient-start {
+    background-image: linear-gradient(to top, transparent, white 90%);
+    top: 10px;
+}
+
+#gradient-end {
+    background-image: linear-gradient(to bottom, transparent, white 90%);
+    bottom: 0;
+}
+
 /* UNITES DE SENS */
-#text.separate span {
+#text.separate .unit {
 	display: inline-block;
 	letter-spacing: 2px;
 }
 
-#text.alternate span:nth-child(even) {
+#text.alternate .unit:nth-child(even) {
 	background-color: #ddd;
 }
 
-#text.alternate span:nth-child(odd) {
+#text.alternate .unit:nth-child(odd) {
 	background-color: #bbb;
+}
+
+/* MOTS */
+.word {
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgba(0, 177, 29, 0.3) !important;
+}
+
+/* CONTEXT MENU */
+#contextMenu {
+    position: absolute;
+    padding: 10px;
+    background-color: #00b11d;
+    height: 80px;
+    border-radius: 40px;
+}
+
+#contextMenu .material-icons {
+    margin-left: 10px;
 }
 
 /* MENU */
 #menu {
+    position: relative;
+    bottom: 0;
 	display: flex;
 	justify-content: center;
 	height: 80px;
@@ -110,8 +161,12 @@ body {
 	user-select: none;
 }
 
+.material-icons:first-child {
+    margin: 0 !important;
+}
+
 .material-icons {
-	margin: 0 10px;
+	margin-left: 20px;
 	position: relative;
 	font-size: 35px;
 	text-align: center;
@@ -124,7 +179,7 @@ body {
 	cursor: pointer;
 }
 
-.material-icons > span {
+.material-icons:not(.no-toggle) > span {
 	display: none;
 }
 
