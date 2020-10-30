@@ -116,15 +116,19 @@
         <div id="gradient-start" style="opacity: 0;"></div>
         <div id="gradient-end"></div>
         <div id="contextMenu" style="display: none">
-            <div class="material-icons no-toggle">
+            <div class="material-icons no-toggle" id="definition">
                 <span>help</span>
             </div>
-            <div class="material-icons no-toggle">
+            <div class="material-icons no-toggle" id="speech">
                 <span>volume_up</span>
             </div>
-            <div class="material-icons no-toggle">
+            <div class="material-icons no-toggle" id="masque">
                 <span>indeterminate_check_box</span>
             </div>
+        </div>
+        <div id="definition-box" style="display: none"></div>
+        <div id="close" class="material-icons no-toggle" style="display: none">
+            <span>close</span>
         </div>
     </div>
 	
@@ -143,7 +147,7 @@
             <span>format_align_justify</span>
             <span data-class="separate">format_line_spacing</span>
         </div>
-        <div class="material-icons toggle1">
+        <div class="material-icons toggle1" id="coloring">
             <span>invert_colors_off</span>
             <span data-class="alternate-lines">opacity</span>
             <span data-class="alternate">invert_colors</span>

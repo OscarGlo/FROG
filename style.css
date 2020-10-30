@@ -82,6 +82,14 @@ body {
 	background-attachment: local;
 }
 
+#container.mask #text.alternate-lines {
+	background-image: repeating-linear-gradient(
+			  to bottom,
+			  transparent, transparent 2rem,
+			  #333 2rem, #333 4rem);
+	background-attachment: local;
+}
+
 #text p {
 	margin: 2rem 0;
 }
@@ -113,6 +121,16 @@ body {
     bottom: 0;
 }
 
+#container.mask #gradient-start {
+	background-image: linear-gradient(to top, transparent, #444 90%);
+	top: 10px;
+}
+
+#container.mask #gradient-end {
+	background-image: linear-gradient(to bottom, transparent, #444 90%);
+	bottom: 0;
+}
+
 /* UNITES DE SENS */
 #text.separate .unit {
 	display: inline-block;
@@ -127,6 +145,15 @@ body {
 	background-color: #bbb;
 }
 
+#container.mask {
+	background-color: #444;
+}
+
+.maskFocus {
+	background-color: white;
+	border-radius: 5px;
+}
+
 /* MOTS */
 .word {
     cursor: pointer;
@@ -134,6 +161,10 @@ body {
 
 .selected {
     background-color: rgba(0, 177, 29, 0.3) !important;
+}
+
+.voice {
+	background-color: rgba(0, 29, 177, 0.3) !important;
 }
 
 /* CONTEXT MENU */
@@ -147,6 +178,26 @@ body {
 
 #contextMenu .material-icons {
     margin-left: 10px;
+}
+
+#close {
+	position: fixed;
+	margin: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	line-height: 45px;
+	left: 50%;
+	top: 22px;
+	transform: translateX(-25px);
+}
+
+#definition-box {
+	position: absolute;
+	padding: 10px;
+	border-radius: 10px;
+	border: 2px solid black;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* MENU */
