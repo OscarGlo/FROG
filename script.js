@@ -18,7 +18,8 @@ window.addEventListener("load", () => {
         container = document.getElementById("container"),
         close = document.getElementById("close"),
         contextMenu = document.getElementById("contextMenu"),
-        coloring = document.getElementById("coloring");
+        coloring = document.getElementById("coloring"),
+        play = document.getElementById("play");
 
     let maskOn = false;
 
@@ -161,4 +162,21 @@ window.addEventListener("load", () => {
             unselect();
         }
     });
+
+    play.addEventListener("click", () => {
+        if (play.classList.contains("toggle2")) {
+            window.speechSynthesis.cancel();
+
+            text.querySelectorAll(".unit").forEach(span => {
+                let utter = new SpeechSynthesisUtterance(span.innerText);
+                utter.rate = 0.8;
+                window.speechSynthesis.speak(utter);
+
+                utter.addEventListener("start", () => span.classList.add("voice"));
+                utter.addEventListener("end", () => span.classList.remove("voice"));
+            });
+        } else {
+            window.speechSynthesis.cancel();
+        }
+    })
 });
